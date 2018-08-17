@@ -19,3 +19,5 @@ and edit; I just mashed it together into a function with
 inputs for all the things I usually want to change or add to a plot when 
 running clinical studies with two groups. Feel free to use, take, edit 
 and make your own!
+
+I advise checking out plotting_examples.m first for a tutorial on how the function works. 
