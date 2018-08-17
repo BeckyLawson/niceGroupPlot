@@ -1,5 +1,6 @@
 # niceGroupPlot
-% Background 
+Background 
+
 This plotting function is useful for people who tend to run experiments 
 with two groups of participants and multiple conditions. I was going to 
 call it GroupByConditionPlot, but niceGroupPlot has a better ring to it.
