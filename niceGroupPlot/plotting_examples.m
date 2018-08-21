@@ -63,11 +63,11 @@ cond{1}=cond{1,1}(1:500);
 cond{2}=cond{1,2}(1:500);
 %% Plot the scatter box only ('whatplot', 3)
 subplot(3,3,1)
-niceGroupPlot(data,cond, 'dotsize',0.2, 'whatplot', 3);
+niceGroupPlot(data,cond, 'dotsize',0.5, 'whatplot', 3);
 title('scatter box only');
 %% Plot the split violins only ('whatplot', 2)
 subplot(3,3,2)
-niceGroupPlot(data,cond, 'dotsize',0.2, 'whatplot', 2);
+niceGroupPlot(data,cond,'whatplot', 2);
 title('split violin only');
 %% Plot both together ('whatplot', 1)
 % Could  be considered overkill, but you may wish to see the raw data, 
@@ -77,35 +77,30 @@ subplot(3,3,3)
 niceGroupPlot(data,cond, 'dotsize',0.5, 'whatplot', 1);
 title('both')
 
-%% Take conditions 1:3 from example data (i.e. 3 conditions instead of 4)
+%% load the data again
 load ('example_data');
-data{1}=data{1,1}(1:750);
-data{2}=data{1,2}(1:750);
-cond{1}=cond{1,1}(1:750);
-cond{2}=cond{1,2}(1:750);
+
 %% Change the plot colours ('col1', 4 and 'col2', 6) and set ('dotsize', 0.1).
 subplot(3,3,4)
-niceGroupPlot(data,cond, 'dotsize',0.1, 'col1', 4, 'col2', 6);
+niceGroupPlot(data,cond, 'dotsize',1, 'col1', 4, 'col2', 6, 'whatplot', 3);
 title('change colours and dot size')
-%% Remove the dots from the scatter box ('dotsize',0.001) and change colours 
-subplot(3,3,5)
-niceGroupPlot(data,cond, 'dotsize',0.001,'col1', 7, 'col2', 8, 'fitline',1);
-title('remove dots & fit line')
+
 %% Pass custom group and condition labels to the function to plot
+subplot(3,3,5)
+niceGroupPlot(data,cond, 'whatplot',2 , 'col1', 3, 'col2', 5, 'gplab', ...
+    {'patients', 'controls'}, 'condlab', {'high', 'med', 'low'}, ...
+      'transp', 0.3);
+title('change labels and transparency');
+
+%% Remove the dots from the scatter box ('dotsize',0.001) and change colours 
 subplot(3,3,6)
-niceGroupPlot(data,cond, 'dotsize',0.001, 'col1', 3, 'col2', 5, 'gplab', ...
-    {'patients', 'controls'}, 'condlab', {'high', 'med', 'low'});
-title('change labels');
-%% Change the transparency of the colours ('transp', 0.3)
-subplot(3,3,7)
-niceGroupPlot(data,cond, 'dotsize',0.001,'col1', 2, 'col2', 3, ...
-    'gplab', {'patients', 'controls'}, 'condlab', {'high', 'med', 'low'},...
-    'transp', 0.3);
-title('change transparency')
+niceGroupPlot(data,cond, 'dotsize',0.001,'col1', 7, 'col2', 5, 'fitline',1);
+title('remove dots & fit line')
+
 %% Scatter Box plot and fit line (recreates the plots in 
 %  Lawson et al, (2017) Nature Neuroscience).
-subplot(3,3,8)
-niceGroupPlot(data,cond, 'dotsize',0.2,'col1', 2, 'col2', 3, ...
+subplot(3,3,7)
+niceGroupPlot(data,cond, 'dotsize',1,'col1', 2, 'col2', 3, ...
     'gplab', {'ASD', 'NT'}, 'condlab', {'E', 'N', 'UE'}, ...
     'whatplot', 3, 'fitline', 1);
 title('scatter box & fit line');
@@ -116,8 +111,14 @@ data{2}=data{1,2}(1:25);
 cond{1}=cond{1,1}(1:25);
 cond{2}=cond{1,2}(1:25);
 %% Plot just condition 1, edit the labels, change the colours, transparency and dot size. 
-subplot(3,3,9)
+subplot(3,3,8)
 niceGroupPlot(data,cond, 'dotsize',4,'col1', 1, 'col2', 6, ...
     'gplab', {'men', 'women'}, 'condlab', {'empathy score'}, ...
-    'transp', 0.7);
+    'transp', 0.7, 'whatplot', 3);
 title('one condition, small n, large dots')
+%% Same as plot above but change the plot type to add in the distribution. 
+subplot(3,3,9)
+niceGroupPlot(data,cond, 'dotsize',3,'col1', 1, 'col2', 6, ...
+    'gplab', {'men', 'women'}, 'condlab', {'empathy score'}, ...
+    'transp', 0.5, 'whatplot', 1);
+title('add distribution')

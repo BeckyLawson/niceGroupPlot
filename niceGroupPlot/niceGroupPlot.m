@@ -2,8 +2,8 @@ function a = niceGroupPlot(data, cond, varargin)
 % Written by Rebecca Lawson, May 2016.
 % Edited by Rebecca Lawson, Aug 2018.
 % This code relies on additional functions (included in the 'EssentialCode'
-% folder. Please add to path. This code is not supported, but has been
-% tested on Matlab 2018a.
+% folder. Please add to path).
+% This code is not supported, but has been tested on Matlab 2018a.
 
 %% Background 
 % This plotting function is useful for people who tend to run experiments 
@@ -23,7 +23,7 @@ function a = niceGroupPlot(data, cond, varargin)
 % and edit; I just mashed it together into a function with 
 % inputs for all the things I usually want to change or add to a plot when 
 % running clinical studies with two groups. Feel free to use, take, edit 
-% and make your own! No citations necessary.
+% and make your own!
 
 %% niceGroupPlot Function info
 % - Required Inputs -
@@ -163,6 +163,10 @@ violinPlot(p.Results.data{1}, 'histOri', 'left', 'widthDiv', [2 1], 'showMM', 0,
 violinPlot(p.Results.data{2}, 'histOri', 'right', 'widthDiv', [2 1], 'showMM', 0, ...
 'color',  mat2cell(colors(p.Results.col2, : ), 1), 'xValues', unique(cell2mat(cond))+0.1, 'groups', p.Results.cond{2})
 hold on
+
+% change the overall alpha
+alpha(p.Results.transp); 
+
 end
 
 %% Just notBoxPlot
