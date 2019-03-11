@@ -21,3 +21,8 @@ running clinical studies with two groups. Feel free to use, take, edit
 and make your own!
 
 I advise checking out plotting_examples.m first for a tutorial on how the function works. 
+
+
+CODE WAS UPDATED IN FEB 2019 TO DEAL WITH A REPORTED ISSUE WHEN THE NUMBER OF SUBJECTS 
+IN EACH GROUP WAS NOT EQUAL. NOW TESTED AND THE FUNCTION CAN HANDLE UNEQUAL GROUP NUMBERS.
+IF YOU DOWNLOADED BEFORE THIS DATE PLEASE UPDATE YOUR LOCAL COPY TO THIS LATEST VERSION.
